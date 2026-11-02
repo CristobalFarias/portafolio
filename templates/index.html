@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }}</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about">Sobre mí</a></li>
+                <li><a href="#projects">Proyectos</a></li>
+                <li><a href="#contact">Contacto</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="hero">
+            <h1>Hola, soy [Tu Nombre]</h1>
+            <p>Desarrollador Python & FastAPI</p>
+        </section>
+
+        <section id="about">
+            <h2>Sobre mí</h2>
+            <p>Aquí puedes escribir una breve descripción de tu trayectoria y habilidades.</p>
+        </section>
+
+        <section id="projects">
+            <h2>Mis Proyectos</h2>
+            <div class="project-grid">
+                <!-- Aquí irán tus proyectos -->
+                <p>Próximamente...</p>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Mi Portafolio</p>
+    </footer>
+</body>
+</html>
