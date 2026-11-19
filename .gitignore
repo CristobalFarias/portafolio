@@ -21,3 +21,4 @@ Thumbs.db
 
 # capturas/logs de Playwright MCP
 .playwright-mcp/
+_site/

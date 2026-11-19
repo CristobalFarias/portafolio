@@ -10,9 +10,12 @@ app.mount("/static", StaticFiles(directory="static"), name="static")
 # Configuración de plantillas
 templates = Jinja2Templates(directory="templates")
 
+# Contexto de la página; build.py lo reutiliza para generar la versión estática
+CONTEXT = {"title": "Cristóbal Farías — Desarrollador Full Stack"}
+
 @app.get("/")
 async def home(request: Request):
-    return templates.TemplateResponse(request, "index.html", {"title": "Cristóbal Farías — Desarrollador Full Stack"})
+    return templates.TemplateResponse(request, "index.html", CONTEXT)
 
 if __name__ == "__main__":
     import uvicorn
