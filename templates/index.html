@@ -209,10 +209,80 @@
         </article>
       </div>
 
-      <p class="mt-8 text-sm text-slate-500 flex items-center gap-2">
-        <i data-lucide="lock" class="w-4 h-4"></i>
-        La mayoría de mis 49 repositorios son privados por ser trabajo para clientes. Puedo mostrar más en una llamada.
-      </p>
+      <!-- Más proyectos -->
+      {% set repos = [
+        ("Ecosistema Mimura", [
+          ("Mimura · Plataforma web", "Backend SaaS multiempresa: cada comercio crea su página, catálogo y sucursales. Incluye carrito, pedidos y panel de administración con aprobación de empresas.", ["Django", "DRF", "PostgreSQL", "Docker", "Terraform"]),
+          ("Mimura · App móvil", "App para compradores y dueños de negocio: descubrir comercios en el mapa, carrito, pedidos y reservas. Los dueños gestionan catálogo, horarios, finanzas y analítica.", ["React Native", "Expo", "TypeScript"]),
+          ("Mimu · Asistente para compradores", "Asistente conversacional con IA que responde y actúa por el cliente. Opera a través de la API pública de la plataforma, siempre con la sesión del usuario.", ["Python", "Claude API", "pytest"]),
+          ("Bot de soporte por WhatsApp", "Chatbot que atiende las dudas de uso de las empresas de la plataforma. Recuerda cada conversación por número de teléfono (en diseño).", ["n8n", "Gemini", "WhatsApp Cloud API"]),
+        ]),
+        ("Software de gestión", [
+          ("Suite de gestión para retail", "Sistema de punto de venta con stock por sucursal, caja rápida, clientes y fidelización. Suma trabajadores, gastos, reportes y base para boleta electrónica.", ["FastAPI", "SQLAlchemy", "SQLite"]),
+          ("Gestión para restaurantes", "Aplicación de escritorio con roles de administrador, jefe y personal. Cubre ventas, cocina, inventario, recetas, reservas, turnos de caja y respaldos.", ["Python", "PyQt6", "SQLite"]),
+          ("CRM para negocios de servicios", "SaaS para profesionales independientes con el flujo completo cliente → propuesta → contrato → cobro. El cliente final firma y paga desde un enlace público.", ["Next.js", "Prisma", "PostgreSQL", "Playwright"]),
+          ("AcuarIA · Monitoreo hídrico", "Plataforma de monitoreo y análisis de factibilidad para sistemas de agua potable rural. Integra telemetría IoT, gráficos y resúmenes con IA.", ["Django", "ThingsBoard", "MySQL"]),
+        ]),
+        ("IA y multimedia", [
+          ("Asistente personal con IA", "Asistente tipo Siri que crea tareas, consulta el calendario y recuerda las preferencias del usuario. Chat web con backend de agentes.", ["FastAPI", "Next.js", "LangChain", "Google Calendar"]),
+          ("Generador de vídeos con avatar", "Convierte una imagen y un guion en un vídeo vertical con avatar que habla, voz sintética y subtítulos animados. Funciona 100 % en local con GPU.", ["Python", "TTS", "Remotion", "ffmpeg"]),
+          ("Mejora de imagen y vídeo con IA", "Aumenta la resolución de imágenes y restaura vídeos de baja calidad. Incluye restauración de rostros e interpolación de fotogramas.", ["Real-ESRGAN", "GFPGAN", "Gradio"]),
+          ("Editor de vídeo de escritorio", "Editor multipista con corte de clips, separación de audio, picture-in-picture y exportación a MP4. El núcleo está cubierto por tests de extremo a extremo.", ["Electron", "TypeScript", "Playwright"]),
+        ]),
+        ("Escritorio y utilidades", [
+          ("Monitor de cámaras IP", "Muestra hasta 9 cámaras en vivo con detección de movimiento y grabación automática. Guarda las credenciales cifradas y se reconecta solo.", ["Python", "RTSP / ONVIF", "SQLite"]),
+          ("Perfiles de color para pantalla", "Cambia con un clic el brillo, contraste y vibración de la GPU desde la bandeja de Windows. Reaplica el perfil si un juego lo modifica.", ["C#", ".NET", "NVIDIA API"]),
+          ("Sintetizador de instrumentos", "Instrumentos virtuales en el navegador: gaita, piano, saxo, silbato y zanfona. El sonido se genera en tiempo real, sin samples.", ["React", "TypeScript", "Web Audio API"]),
+          ("Plataforma para aprender japonés", "App web con lecciones, tabla de hiragana, flashcards de kana y práctica de vocabulario. Trae una base de 2.000 palabras.", ["Django", "JavaScript"]),
+          ("Descargador de audio", "Aplicación de escritorio que convierte vídeos en archivos MP3 con un clic. Muestra el progreso de la descarga.", ["Python", "Tkinter", "ffmpeg"]),
+          ("Envío masivo de mensajes", "Envía correos y mensajes de WhatsApp a una lista de contactos cargada desde Excel o CSV. Interfaz con pestañas por canal.", ["Python", "CustomTkinter", "pandas"]),
+          ("Lector de texto en voz alta", "Convierte en voz cualquier texto que escribas. Tiene versión de consola y versión con interfaz gráfica.", ["Python", "pyttsx3"]),
+        ]),
+      ] %}
+      <div class="mt-20">
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-8">
+          <div>
+            <span class="text-xs font-semibold text-brand-400 uppercase tracking-widest">Repositorios</span>
+            <h3 class="heading-display text-2xl sm:text-3xl font-bold text-white mt-1">Más proyectos</h3>
+          </div>
+          <p class="text-sm text-slate-500 flex items-center gap-2 md:max-w-sm">
+            <i data-lucide="lock" class="w-4 h-4 shrink-0"></i>
+            El código es privado (trabajo para clientes y productos propios). Puedo mostrarlo en una llamada.
+          </p>
+        </div>
+
+        <div class="rounded-3xl bg-surface-card border border-surface-border overflow-x-auto">
+          <table class="w-full min-w-[720px] text-left text-sm">
+            <thead class="text-xs uppercase tracking-wider text-slate-500 border-b border-surface-border">
+              <tr>
+                <th scope="col" class="px-6 py-4 font-semibold w-[26%]">Proyecto</th>
+                <th scope="col" class="px-6 py-4 font-semibold">Qué hace</th>
+                <th scope="col" class="px-6 py-4 font-semibold w-[24%]">Tecnologías</th>
+              </tr>
+            </thead>
+            {% for category, items in repos %}
+            <tbody class="divide-y divide-surface-border/70">
+              <tr class="bg-surface-muted/60">
+                <th scope="colgroup" colspan="3" class="px-6 py-2.5 text-xs font-semibold text-brand-400 uppercase tracking-widest">{{ category }}</th>
+              </tr>
+              {% for name, summary, tech in items %}
+              <tr class="hover:bg-surface-muted/40 transition-colors align-top">
+                <th scope="row" class="px-6 py-4 font-semibold text-white">{{ name }}</th>
+                <td class="px-6 py-4 text-slate-400 leading-relaxed">{{ summary }}</td>
+                <td class="px-6 py-4">
+                  <div class="flex flex-wrap gap-1.5">
+                    {% for t in tech %}
+                    <span class="px-2 py-0.5 rounded-md text-xs bg-slate-800 text-slate-300">{{ t }}</span>
+                    {% endfor %}
+                  </div>
+                </td>
+              </tr>
+              {% endfor %}
+            </tbody>
+            {% endfor %}
+          </table>
+        </div>
+      </div>
     </section>
 
     <!-- Experiencia -->
