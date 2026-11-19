@@ -18,3 +18,6 @@ __pycache__/
 .blackboxcli/
 .DS_Store
 Thumbs.db
+
+# capturas/logs de Playwright MCP
+.playwright-mcp/

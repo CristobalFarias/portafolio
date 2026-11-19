@@ -1,44 +1,389 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="dark scroll-smooth">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }}</title>
-    <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="Cristóbal Farías Fredes — Desarrollador Full Stack en San Fernando, Chile. Plataformas web con Django y React, apps móviles, escritorio e integración de IA.">
+
+  <!-- Google Fonts: Syne & Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Syne:wght@500;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@0.460.0/dist/umd/lucide.min.js"></script>
+
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: {
+            syne: ['Syne', 'sans-serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          },
+          colors: {
+            brand: {
+              50: '#f5f3ff',
+              300: '#c4b5fd',
+              400: '#a78bfa',
+              500: '#8b5cf6',
+              600: '#7c3aed',
+            },
+            surface: {
+              DEFAULT: '#0c0e12',
+              card: '#13161c',
+              border: '#1f242d',
+              muted: '#181b22',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <link rel="stylesheet" href="{{ url_for('static', path='/css/style.css') }}">
 </head>
-<body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">Sobre mí</a></li>
-                <li><a href="#projects">Proyectos</a></li>
-                <li><a href="#contact">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+<body class="min-h-screen relative overflow-x-hidden selection:bg-brand-500 selection:text-white">
 
-    <main>
-        <section id="hero">
-            <h1>Hola, soy [Tu Nombre]</h1>
-            <p>Desarrollador Python & FastAPI</p>
-        </section>
+  <!-- Glow Background Effect -->
+  <div class="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-6xl h-[550px] glow-purple pointer-events-none -z-10"></div>
 
-        <section id="about">
-            <h2>Sobre mí</h2>
-            <p>Aquí puedes escribir una breve descripción de tu trayectoria y habilidades.</p>
-        </section>
+  <!-- Header / Navigation -->
+  <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0c0e12]/80 border-b border-surface-border">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      <a href="#" class="flex items-center gap-3">
+        <div class="w-9 h-9 rounded-xl bg-brand-500/20 border border-brand-500/40 flex items-center justify-center text-brand-400 font-syne font-bold text-lg">
+          CF
+        </div>
+        <span class="font-syne font-bold text-xl tracking-tight text-white">Cristóbal Farías</span>
+        <span class="hidden lg:inline-flex items-center gap-1.5 ml-3 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          Disponible para proyectos
+        </span>
+      </a>
 
-        <section id="projects">
-            <h2>Mis Proyectos</h2>
-            <div class="project-grid">
-                <!-- Aquí irán tus proyectos -->
-                <p>Próximamente...</p>
+      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+        <a href="#proyectos" class="hover:text-brand-400 transition-colors">Proyectos</a>
+        <a href="#experiencia" class="hover:text-brand-400 transition-colors">Experiencia</a>
+        <a href="#stack" class="hover:text-brand-400 transition-colors">Stack</a>
+        <a href="#formacion" class="hover:text-brand-400 transition-colors">Formación</a>
+        <a href="#contacto" class="hover:text-brand-400 transition-colors">Contacto</a>
+      </nav>
+
+      <a href="#contacto" class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-medium text-sm transition-all shadow-lg shadow-brand-500/20 hover:scale-[1.02]">
+        Hablemos
+      </a>
+    </div>
+  </header>
+
+  <main class="max-w-7xl mx-auto px-6 pt-16 pb-24">
+    <!-- Hero -->
+    <section class="max-w-4xl pt-8 pb-16">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-surface-card border border-surface-border text-brand-400 mb-6">
+        <i data-lucide="code-2" class="w-3.5 h-3.5"></i>
+        Full Stack Developer · Ingeniero de Ejecución en Informática
+      </div>
+
+      <h1 class="heading-display text-4xl sm:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-[1.08] mb-6">
+        Desarrollo plataformas completas: backend, web, móvil e IA, <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-400 via-purple-300 to-indigo-300">todo conectado</span>.
+      </h1>
+
+      <p class="text-lg sm:text-xl text-slate-400 max-w-2xl font-light leading-relaxed mb-10">
+        Construyo APIs REST con Django, aplicaciones en React y React Native, software de escritorio e integración de pagos y modelos de lenguaje. Me gusta dejar las cosas documentadas, probadas y fáciles de desplegar.
+      </p>
+
+      <div class="flex flex-wrap items-center gap-4">
+        <a href="#contacto" class="px-7 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm transition-all shadow-lg shadow-brand-500/25 flex items-center gap-2">
+          <i data-lucide="mail" class="w-4 h-4"></i> Contactar
+        </a>
+        <a href="#proyectos" class="px-7 py-3.5 rounded-xl bg-surface-card hover:bg-surface-muted text-slate-200 border border-surface-border font-medium text-sm transition-all flex items-center gap-2">
+          Ver Proyectos <i data-lucide="arrow-down" class="w-4 h-4"></i>
+        </a>
+        <span class="inline-flex items-center gap-1.5 text-sm text-slate-500">
+          <i data-lucide="map-pin" class="w-4 h-4"></i> San Fernando, Chile
+        </span>
+      </div>
+    </section>
+
+    <!-- Métricas -->
+    <section class="grid grid-cols-2 md:grid-cols-4 gap-4 py-10 border-y border-surface-border/70 my-12">
+      <div class="p-5 rounded-2xl bg-surface-card/60 border border-surface-border">
+        <p class="text-3xl sm:text-4xl font-syne font-bold text-white mb-1">49</p>
+        <p class="text-xs sm:text-sm text-slate-400 font-medium">Repositorios en GitHub</p>
+      </div>
+      <div class="p-5 rounded-2xl bg-surface-card/60 border border-surface-border">
+        <p class="text-3xl sm:text-4xl font-syne font-bold text-emerald-400 mb-1">34</p>
+        <p class="text-xs sm:text-sm text-slate-400 font-medium">Proyectos nuevos en 2026</p>
+      </div>
+      <div class="p-5 rounded-2xl bg-surface-card/60 border border-surface-border">
+        <p class="text-3xl sm:text-4xl font-syne font-bold text-white mb-1">6.5<span class="text-brand-400 text-2xl">/7</span></p>
+        <p class="text-xs sm:text-sm text-slate-400 font-medium">Promedio de titulación · Mejor rendimiento 2023</p>
+      </div>
+      <div class="p-5 rounded-2xl bg-surface-card/60 border border-surface-border">
+        <p class="text-3xl sm:text-4xl font-syne font-bold text-brand-400 mb-1">11</p>
+        <p class="text-xs sm:text-sm text-slate-400 font-medium">Certificaciones (CCNA, Scrum, Python…)</p>
+      </div>
+    </section>
+
+    <!-- Proyectos -->
+    <section id="proyectos" class="pt-8">
+      <div class="mb-12">
+        <span class="text-xs font-semibold text-brand-400 uppercase tracking-widest">Trabajos Seleccionados</span>
+        <h2 class="heading-display text-3xl sm:text-4xl font-bold text-white mt-1">Proyectos</h2>
+      </div>
+
+      <div class="space-y-12">
+        <!-- Mimura -->
+        <article class="p-6 sm:p-8 rounded-3xl bg-surface-card border border-surface-border hover:border-brand-500/40 transition-all duration-300 grid lg:grid-cols-12 gap-8 items-center group">
+          <div class="lg:col-span-5 space-y-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-brand-500/10 text-brand-400 border border-brand-500/20">Plataforma web</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300">Marketplace</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300">En producción</span>
             </div>
-        </section>
-    </main>
+            <h3 class="heading-display text-2xl sm:text-3xl font-bold text-white group-hover:text-brand-400 transition-colors">Mimura</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Plataforma que conecta personas con comercios locales. Los usuarios descubren negocios en el mapa, compran y reservan en línea; cada comercio obtiene su propia página, tienda y sistema de reservas.
+            </p>
+            <ul class="grid grid-cols-2 gap-3 py-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="map" class="w-4 h-4 text-brand-400"></i> Comercios en el mapa</li>
+              <li class="flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4 text-brand-400"></i> Venta online</li>
+              <li class="flex items-center gap-2"><i data-lucide="calendar-check" class="w-4 h-4 text-brand-400"></i> Reservas</li>
+              <li class="flex items-center gap-2"><i data-lucide="credit-card" class="w-4 h-4 text-brand-400"></i> Pagos en línea</li>
+              <li class="flex items-center gap-2"><i data-lucide="bar-chart-3" class="w-4 h-4 text-brand-400"></i> Estadísticas</li>
+              <li class="flex items-center gap-2"><i data-lucide="store" class="w-4 h-4 text-brand-400"></i> Planes por comercio</li>
+            </ul>
+            <a href="https://mimura.cl" target="_blank" rel="noopener" class="inline-flex items-center gap-2 text-sm font-semibold text-brand-400 hover:text-brand-300 transition-colors pt-2">
+              Visitar mimura.cl <i data-lucide="arrow-up-right" class="w-4 h-4"></i>
+            </a>
+          </div>
+          <a href="https://mimura.cl" target="_blank" rel="noopener" class="lg:col-span-7 block rounded-2xl bg-surface-muted border border-surface-border overflow-hidden p-3 sm:p-4">
+            <img src="{{ url_for('static', path='/img/mimura.jpg') }}" alt="Página de inicio de mimura.cl" loading="lazy" class="w-full rounded-xl border border-slate-800 group-hover:scale-[1.01] transition-transform duration-300">
+          </a>
+        </article>
 
-    <footer>
-        <p>&copy; 2026 Mi Portafolio</p>
-    </footer>
+        <!-- Fundación Tribu que Abraza -->
+        <article class="p-6 sm:p-8 rounded-3xl bg-surface-card border border-surface-border hover:border-brand-500/40 transition-all duration-300 grid lg:grid-cols-12 gap-8 items-center group">
+          <div class="lg:col-span-5 space-y-4">
+            <div class="flex flex-wrap gap-2">
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-brand-500/10 text-brand-400 border border-brand-500/20">Sitio institucional</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300">HTML · CSS · JS</span>
+              <span class="px-2.5 py-1 rounded-md text-xs font-medium bg-slate-800 text-slate-300">2023</span>
+            </div>
+            <h3 class="heading-display text-2xl sm:text-3xl font-bold text-white group-hover:text-brand-400 transition-colors">Fundación Tribu que Abraza</h3>
+            <p class="text-sm text-slate-400 leading-relaxed">
+              Diseño y desarrollo completo del sitio web institucional de la fundación: funcionalidades de contacto y difusión de información, y una estructura pensada para que sea fácil de navegar.
+            </p>
+            <ul class="grid grid-cols-2 gap-3 py-2 text-sm text-slate-300">
+              <li class="flex items-center gap-2"><i data-lucide="pen-tool" class="w-4 h-4 text-brand-400"></i> Diseño completo</li>
+              <li class="flex items-center gap-2"><i data-lucide="send" class="w-4 h-4 text-brand-400"></i> Formulario de contacto</li>
+              <li class="flex items-center gap-2"><i data-lucide="megaphone" class="w-4 h-4 text-brand-400"></i> Difusión de información</li>
+              <li class="flex items-center gap-2"><i data-lucide="mouse-pointer-click" class="w-4 h-4 text-brand-400"></i> Usabilidad</li>
+            </ul>
+          </div>
+          <div class="lg:col-span-7 h-72 sm:h-80 rounded-2xl bg-surface-muted border border-surface-border overflow-hidden flex items-center justify-center p-6">
+            <div class="w-full h-full rounded-xl bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
+                <span class="text-xs text-slate-400 font-mono">Sitio institucional</span>
+                <div class="flex gap-3">
+                  <span class="h-2 w-10 rounded bg-slate-700"></span>
+                  <span class="h-2 w-10 rounded bg-slate-700"></span>
+                  <span class="h-2 w-10 rounded bg-brand-500/50"></span>
+                </div>
+              </div>
+              <div class="flex-1 rounded-lg bg-gradient-to-br from-brand-500/20 to-emerald-500/10 flex items-center justify-center">
+                <i data-lucide="heart-handshake" class="w-12 h-12 text-brand-300/70"></i>
+              </div>
+              <div class="grid grid-cols-3 gap-3">
+                <div class="h-10 bg-slate-800/60 rounded-lg"></div>
+                <div class="h-10 bg-slate-800/60 rounded-lg"></div>
+                <div class="h-10 bg-slate-800/60 rounded-lg"></div>
+              </div>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <p class="mt-8 text-sm text-slate-500 flex items-center gap-2">
+        <i data-lucide="lock" class="w-4 h-4"></i>
+        La mayoría de mis 49 repositorios son privados por ser trabajo para clientes. Puedo mostrar más en una llamada.
+      </p>
+    </section>
+
+    <!-- Experiencia -->
+    <section id="experiencia" class="mt-20 pt-16 border-t border-surface-border grid lg:grid-cols-12 gap-10">
+      <div class="lg:col-span-4">
+        <span class="text-xs font-semibold text-brand-400 uppercase tracking-widest">Trayectoria</span>
+        <h2 class="heading-display text-3xl sm:text-4xl font-bold text-white mt-1">Experiencia</h2>
+        <p class="text-sm text-slate-400 leading-relaxed mt-4">
+          Empecé en soporte TI y redes, y hoy desarrollo plataformas completas. Mi meta: consolidarme como desarrollador full stack en SaaS escalables, productos multiplataforma sobre una sola API e integración de IA.
+        </p>
+      </div>
+      <ol class="lg:col-span-8 relative border-l border-surface-border ml-2 space-y-8">
+        <li class="pl-8 relative">
+          <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-brand-500 ring-4 ring-brand-500/20"></span>
+          <p class="text-xs font-semibold text-brand-400 uppercase tracking-wider">Jul 2024 — Presente</p>
+          <h3 class="font-syne font-bold text-white text-lg mt-1">Desarrollador Web y de Aplicaciones de Escritorio · Freelance</h3>
+          <p class="text-sm text-slate-400 mt-2">Aplicaciones web y de escritorio en Python, C#, JavaScript y .NET. Levantamiento de requerimientos, diseño de soluciones, entrega a clientes y mantenimiento de sistemas existentes.</p>
+        </li>
+        <li class="pl-8 relative">
+          <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-600"></span>
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Jul 2024 — Abr 2026</p>
+          <h3 class="font-syne font-bold text-white text-lg mt-1">Desarrollador Backend / Apoyo Frontend · WAM Digital</h3>
+          <p class="text-sm text-slate-400 mt-2">Desarrollo y mantenimiento de aplicaciones web con Python, Django y SQL. Integración de APIs REST y apoyo frontend con HTML, CSS y JavaScript, bajo Agile / Scrum.</p>
+        </li>
+        <li class="pl-8 relative">
+          <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-600"></span>
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Abr 2023 — Jul 2023</p>
+          <h3 class="font-syne font-bold text-white text-lg mt-1">Desarrollador Web · Fundación Tribu que Abraza</h3>
+          <p class="text-sm text-slate-400 mt-2">Diseño y desarrollo completo del sitio web institucional, con contacto y difusión de información.</p>
+        </li>
+        <li class="pl-8 relative">
+          <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-600"></span>
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Abr 2022 — Ago 2022</p>
+          <h3 class="font-syne font-bold text-white text-lg mt-1">Soporte y Mantenimiento TI · Hospital San Juan de Dios</h3>
+          <p class="text-sm text-slate-400 mt-2">Soporte de hardware y software, mantenimiento de redes y apoyo a personal clínico y administrativo.</p>
+        </li>
+        <li class="pl-8 relative">
+          <span class="absolute -left-[7px] top-1.5 w-3 h-3 rounded-full bg-slate-600"></span>
+          <p class="text-xs font-semibold text-slate-400 uppercase tracking-wider">Mar 2021 — Presente</p>
+          <h3 class="font-syne font-bold text-white text-lg mt-1">Técnico en Mantención de Computadores y Redes · Freelance</h3>
+          <p class="text-sm text-slate-400 mt-2">Diagnóstico y reparación de equipos, instalación de software y redes para particulares y pymes.</p>
+        </li>
+      </ol>
+    </section>
+
+    <!-- Stack -->
+    <section id="stack" class="mt-20 pt-16 border-t border-surface-border">
+      <div class="text-center max-w-xl mx-auto mb-12">
+        <span class="text-xs font-semibold text-brand-400 uppercase tracking-widest">Herramientas</span>
+        <h2 class="heading-display text-3xl font-bold text-white mt-1">Stack Tecnológico</h2>
+      </div>
+      {% set stack = [
+        ("server", "Backend", ["Python", "Django", "Django REST Framework", "FastAPI", "Flask", "JWT", "Django Channels"]),
+        ("smartphone", "Frontend y móvil", ["React", "React Native (Expo)", "TypeScript", "Vite", "Tailwind", "Leaflet"]),
+        ("monitor", "Escritorio", ["PyQt6", "Electron", "C# WinForms", ".NET", "Flet"]),
+        ("database", "Datos", ["PostgreSQL", "MySQL", "SQL Server", "SQLite", "pandas"]),
+        ("cloud", "Infraestructura", ["Docker", "AWS (ECS, S3)", "Terraform", "GitHub Actions", "Nginx", "Linux"]),
+        ("credit-card", "Pagos e integraciones", ["Webpay (Transbank)", "Mercado Pago", "Khipu", "Twilio", "Google Sign-In"]),
+        ("flask-conical", "Pruebas", ["pytest", "Vitest", "Playwright", "Jest", "Postman"]),
+        ("sparkles", "Inteligencia artificial", ["Claude (API y Claude Code)", "Gemini", "Ollama (Llama 3)", "ChatGPT", "Copilot"]),
+      ] %}
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {% for icon, name, items in stack %}
+        <div class="p-6 rounded-3xl bg-surface-card border border-surface-border hover:border-brand-500/40 transition-colors space-y-4">
+          <i data-lucide="{{ icon }}" class="w-6 h-6 text-brand-400"></i>
+          <h3 class="font-syne font-bold text-white text-lg">{{ name }}</h3>
+          <div class="flex flex-wrap gap-2 text-xs">
+            {% for item in items %}
+            <span class="px-2.5 py-1 rounded-md bg-slate-800 text-slate-300">{{ item }}</span>
+            {% endfor %}
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </section>
+
+    <!-- Formación -->
+    <section id="formacion" class="mt-20 pt-16 border-t border-surface-border grid lg:grid-cols-2 gap-10">
+      <div>
+        <span class="text-xs font-semibold text-brand-400 uppercase tracking-widest">Educación</span>
+        <h2 class="heading-display text-3xl font-bold text-white mt-1 mb-8">Formación</h2>
+        <div class="space-y-4">
+          <div class="p-6 rounded-2xl bg-surface-card border border-brand-500/30">
+            <div class="flex items-start justify-between gap-4">
+              <div>
+                <h3 class="font-semibold text-white">Ingeniero de Ejecución en Informática, mención Desarrollo de Sistemas</h3>
+                <p class="text-sm text-slate-400 mt-1">AIEP – Universidad Andrés Bello · 2023</p>
+              </div>
+              <span class="shrink-0 text-lg font-syne font-bold text-brand-400">6.5</span>
+            </div>
+            <p class="mt-3 inline-flex items-center gap-1.5 text-xs font-medium text-amber-300">
+              <i data-lucide="award" class="w-4 h-4"></i> Mejor Rendimiento Académico, promoción 2023
+            </p>
+          </div>
+          <div class="p-6 rounded-2xl bg-surface-card border border-surface-border flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-semibold text-white">Programación y Análisis de Sistemas</h3>
+              <p class="text-sm text-slate-400 mt-1">AIEP – Universidad Andrés Bello · 2022</p>
+            </div>
+            <span class="shrink-0 text-lg font-syne font-bold text-slate-300">6.2</span>
+          </div>
+          <div class="p-6 rounded-2xl bg-surface-card border border-surface-border flex items-start justify-between gap-4">
+            <div>
+              <h3 class="font-semibold text-white">Técnico de Nivel Superior en Programación Computacional</h3>
+              <p class="text-sm text-slate-400 mt-1">AIEP – Universidad Andrés Bello · 2021</p>
+            </div>
+            <span class="shrink-0 text-lg font-syne font-bold text-slate-300">6.3</span>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <span class="text-xs font-semibold text-brand-400 uppercase tracking-widest">Certificaciones</span>
+        <h2 class="heading-display text-3xl font-bold text-white mt-1 mb-8">Cursos y certificados</h2>
+        {% set certs = [
+          ("CCNA – Cisco", "2024"), ("Introducción a la Ciberseguridad – Cisco", "2024"),
+          ("Fundamentos de Git y GitHub", "2024"), ("Programación con Python para Análisis de Datos", "2024"),
+          ("Data Analysis con Python", "2024"), ("CSS Avanzado", "2024"),
+          ("Introducción al Desarrollo Web", "2024"), ("Scrum Fundamentals", "2024"),
+          ("Jira Software para Equipos Ágiles", "2024"), ("Programación de Software", "2023"),
+          ("Calidad de Software", "2023"),
+        ] %}
+        <ul class="rounded-2xl bg-surface-card border border-surface-border divide-y divide-surface-border">
+          {% for name, year in certs %}
+          <li class="px-5 py-3 flex items-center justify-between gap-4 text-sm">
+            <span class="flex items-center gap-2.5 text-slate-300">
+              <i data-lucide="badge-check" class="w-4 h-4 text-emerald-400 shrink-0"></i> {{ name }}
+            </span>
+            <span class="text-xs text-slate-500">{{ year }}</span>
+          </li>
+          {% endfor %}
+        </ul>
+      </div>
+    </section>
+
+    <!-- Contacto -->
+    <section id="contacto" class="mt-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-surface-card to-[#101318] border border-surface-border relative overflow-hidden">
+      <div class="max-w-2xl relative z-10">
+        <span class="text-xs font-semibold text-brand-400 uppercase tracking-widest">Iniciemos una conversación</span>
+        <h2 class="heading-display text-3xl sm:text-5xl font-bold text-white mt-2 mb-4 leading-tight">
+          ¿Tienes un proyecto en mente?
+        </h2>
+        <p class="text-slate-400 text-sm sm:text-base mb-8">
+          Plataformas web, apps móviles, software de escritorio o integración de IA y pagos. Cuéntame qué necesitas y vemos cómo hacerlo realidad.
+        </p>
+        <div class="flex flex-wrap items-center gap-4">
+          <a href="mailto:cristobal.farias.frelancer@gmail.com" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm transition-all shadow-lg shadow-brand-500/20">
+            <i data-lucide="mail" class="w-4 h-4"></i> cristobal.farias.frelancer@gmail.com
+          </a>
+          <a href="https://www.linkedin.com/in/cristobal-farias-freelancer/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-surface-card hover:bg-surface-muted text-slate-200 border border-surface-border font-medium text-sm transition-all">
+            <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-surface-border py-10 bg-[#0c0e12]">
+    <div class="max-w-7xl mx-auto px-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400">
+      <p>© 2026 Cristóbal Farías Fredes. Todos los derechos reservados.</p>
+      <div class="flex items-center gap-6">
+        <a href="https://www.linkedin.com/in/cristobal-farias-freelancer/" target="_blank" rel="noopener" class="hover:text-white transition-colors">LinkedIn</a>
+        <a href="https://github.com/CristobalFarias" target="_blank" rel="noopener" class="hover:text-white transition-colors">GitHub</a>
+        <a href="https://mimura.cl" target="_blank" rel="noopener" class="hover:text-white transition-colors">Mimura</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+  </script>
 </body>
 </html>

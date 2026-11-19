@@ -12,7 +12,7 @@ templates = Jinja2Templates(directory="templates")
 
 @app.get("/")
 async def home(request: Request):
-    return templates.TemplateResponse("index.html", {"request": request, "title": "Mi Portafolio"})
+    return templates.TemplateResponse(request, "index.html", {"title": "Cristóbal Farías — Desarrollador Full Stack"})
 
 if __name__ == "__main__":
     import uvicorn
