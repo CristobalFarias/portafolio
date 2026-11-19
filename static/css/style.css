@@ -17,3 +17,30 @@ body {
 section[id] {
   scroll-margin-top: 6rem;
 }
+
+/* Teléfono y tablet: la tabla de repositorios se apila como tarjetas */
+@media (max-width: 1023px) {
+  .repo-table thead {
+    display: none;
+  }
+  .repo-table,
+  .repo-table tbody,
+  .repo-table tr,
+  .repo-table th,
+  .repo-table td {
+    display: block;
+    width: 100%;
+  }
+  .repo-table tr > th[scope="row"] {
+    padding: 1rem 1.25rem 0.25rem;
+  }
+  .repo-table tr > td {
+    padding: 0.25rem 1.25rem;
+  }
+  .repo-table tr > td:last-child {
+    padding-bottom: 1rem;
+  }
+  .repo-table th[scope="colgroup"] {
+    padding: 0.625rem 1.25rem;
+  }
+}

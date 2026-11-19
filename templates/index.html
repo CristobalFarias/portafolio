@@ -55,19 +55,19 @@
 
   <!-- Header / Navigation -->
   <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0c0e12]/80 border-b border-surface-border">
-    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-      <a href="#" class="flex items-center gap-3">
-        <div class="w-9 h-9 rounded-xl bg-brand-500/20 border border-brand-500/40 flex items-center justify-center text-brand-400 font-syne font-bold text-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-16 sm:h-20 flex items-center justify-between gap-3">
+      <a href="#" class="flex items-center gap-2.5 sm:gap-3 min-w-0">
+        <div class="w-9 h-9 shrink-0 rounded-xl bg-brand-500/20 border border-brand-500/40 flex items-center justify-center text-brand-400 font-syne font-bold text-lg">
           CF
         </div>
-        <span class="font-syne font-bold text-xl tracking-tight text-white">Cristóbal Farías</span>
-        <span class="hidden lg:inline-flex items-center gap-1.5 ml-3 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
+        <span class="font-syne font-bold text-lg sm:text-xl tracking-tight text-white whitespace-nowrap truncate">Cristóbal Farías</span>
+        <span class="hidden xl:inline-flex items-center gap-1.5 ml-3 px-2.5 py-1 rounded-full text-xs font-medium bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
           <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
           Disponible para proyectos
         </span>
       </a>
 
-      <nav class="hidden md:flex items-center gap-8 text-sm font-medium text-slate-300">
+      <nav class="hidden lg:flex items-center gap-6 xl:gap-8 text-sm font-medium text-slate-300">
         <a href="#proyectos" class="hover:text-brand-400 transition-colors">Proyectos</a>
         <a href="#experiencia" class="hover:text-brand-400 transition-colors">Experiencia</a>
         <a href="#stack" class="hover:text-brand-400 transition-colors">Stack</a>
@@ -75,13 +75,30 @@
         <a href="#contacto" class="hover:text-brand-400 transition-colors">Contacto</a>
       </nav>
 
-      <a href="#contacto" class="px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-medium text-sm transition-all shadow-lg shadow-brand-500/20 hover:scale-[1.02]">
-        Hablemos
-      </a>
+      <div class="flex items-center gap-2 shrink-0">
+        <a href="#contacto" class="hidden sm:inline-flex px-5 py-2.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-medium text-sm transition-all shadow-lg shadow-brand-500/20 hover:scale-[1.02]">
+          Hablemos
+        </a>
+        <button id="menu-toggle" type="button" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu" class="lg:hidden w-10 h-10 rounded-xl border border-surface-border bg-surface-card flex items-center justify-center text-slate-200">
+          <i data-lucide="menu" class="w-5 h-5"></i>
+        </button>
+      </div>
     </div>
+
+    <!-- Menú móvil -->
+    <nav id="mobile-menu" class="hidden lg:hidden border-t border-surface-border bg-[#0c0e12]/95 px-4 pb-4">
+      <ul class="flex flex-col text-base font-medium text-slate-200">
+        <li><a href="#proyectos" class="block py-3 border-b border-surface-border/60">Proyectos</a></li>
+        <li><a href="#experiencia" class="block py-3 border-b border-surface-border/60">Experiencia</a></li>
+        <li><a href="#stack" class="block py-3 border-b border-surface-border/60">Stack</a></li>
+        <li><a href="#formacion" class="block py-3 border-b border-surface-border/60">Formación</a></li>
+        <li><a href="#contacto" class="block py-3">Contacto</a></li>
+      </ul>
+      <a href="#contacto" class="mt-2 flex justify-center px-5 py-3 rounded-xl bg-brand-500 text-white font-semibold text-sm">Hablemos</a>
+    </nav>
   </header>
 
-  <main class="max-w-7xl mx-auto px-6 pt-16 pb-24">
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 pt-10 sm:pt-16 pb-24">
     <!-- Hero -->
     <section class="max-w-4xl pt-8 pb-16">
       <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-surface-card border border-surface-border text-brand-400 mb-6">
@@ -150,7 +167,7 @@
             <p class="text-sm text-slate-400 leading-relaxed">
               Plataforma que conecta personas con comercios locales. Los usuarios descubren negocios en el mapa, compran y reservan en línea; cada comercio obtiene su propia página, tienda y sistema de reservas.
             </p>
-            <ul class="grid grid-cols-2 gap-3 py-2 text-sm text-slate-300">
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 py-2 text-sm text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="map" class="w-4 h-4 text-brand-400"></i> Comercios en el mapa</li>
               <li class="flex items-center gap-2"><i data-lucide="shopping-bag" class="w-4 h-4 text-brand-400"></i> Venta online</li>
               <li class="flex items-center gap-2"><i data-lucide="calendar-check" class="w-4 h-4 text-brand-400"></i> Reservas</li>
@@ -179,21 +196,21 @@
             <p class="text-sm text-slate-400 leading-relaxed">
               Diseño y desarrollo completo del sitio web institucional de la fundación: funcionalidades de contacto y difusión de información, y una estructura pensada para que sea fácil de navegar.
             </p>
-            <ul class="grid grid-cols-2 gap-3 py-2 text-sm text-slate-300">
+            <ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 py-2 text-sm text-slate-300">
               <li class="flex items-center gap-2"><i data-lucide="pen-tool" class="w-4 h-4 text-brand-400"></i> Diseño completo</li>
               <li class="flex items-center gap-2"><i data-lucide="send" class="w-4 h-4 text-brand-400"></i> Formulario de contacto</li>
               <li class="flex items-center gap-2"><i data-lucide="megaphone" class="w-4 h-4 text-brand-400"></i> Difusión de información</li>
               <li class="flex items-center gap-2"><i data-lucide="mouse-pointer-click" class="w-4 h-4 text-brand-400"></i> Usabilidad</li>
             </ul>
           </div>
-          <div class="lg:col-span-7 h-72 sm:h-80 rounded-2xl bg-surface-muted border border-surface-border overflow-hidden flex items-center justify-center p-6">
+          <div class="lg:col-span-7 h-72 sm:h-80 rounded-2xl bg-surface-muted border border-surface-border overflow-hidden flex items-center justify-center p-3 sm:p-6">
             <div class="w-full h-full rounded-xl bg-slate-900 border border-slate-800 p-4 flex flex-col gap-4">
-              <div class="flex items-center justify-between border-b border-slate-800 pb-3">
-                <span class="text-xs text-slate-400 font-mono">Sitio institucional</span>
-                <div class="flex gap-3">
-                  <span class="h-2 w-10 rounded bg-slate-700"></span>
-                  <span class="h-2 w-10 rounded bg-slate-700"></span>
-                  <span class="h-2 w-10 rounded bg-brand-500/50"></span>
+              <div class="flex items-center justify-between gap-3 border-b border-slate-800 pb-3">
+                <span class="text-xs text-slate-400 font-mono truncate">Sitio institucional</span>
+                <div class="flex gap-2 sm:gap-3 shrink-0">
+                  <span class="h-2 w-6 sm:w-10 rounded bg-slate-700"></span>
+                  <span class="h-2 w-6 sm:w-10 rounded bg-slate-700"></span>
+                  <span class="h-2 w-6 sm:w-10 rounded bg-brand-500/50"></span>
                 </div>
               </div>
               <div class="flex-1 rounded-lg bg-gradient-to-br from-brand-500/20 to-emerald-500/10 flex items-center justify-center">
@@ -251,8 +268,8 @@
           </p>
         </div>
 
-        <div class="rounded-3xl bg-surface-card border border-surface-border overflow-x-auto">
-          <table class="w-full min-w-[720px] text-left text-sm">
+        <div class="rounded-3xl bg-surface-card border border-surface-border overflow-hidden lg:overflow-x-auto">
+          <table class="repo-table w-full lg:min-w-[720px] text-left text-sm">
             <thead class="text-xs uppercase tracking-wider text-slate-500 border-b border-surface-border">
               <tr>
                 <th scope="col" class="px-6 py-4 font-semibold w-[26%]">Proyecto</th>
@@ -431,7 +448,7 @@
     </section>
 
     <!-- Contacto -->
-    <section id="contacto" class="mt-20 p-8 sm:p-12 rounded-3xl bg-gradient-to-b from-surface-card to-[#101318] border border-surface-border relative overflow-hidden">
+    <section id="contacto" class="mt-20 p-6 sm:p-12 rounded-3xl bg-gradient-to-b from-surface-card to-[#101318] border border-surface-border relative overflow-hidden">
       <div class="max-w-2xl relative z-10">
         <span class="text-xs font-semibold text-brand-400 uppercase tracking-widest">Iniciemos una conversación</span>
         <h2 class="heading-display text-3xl sm:text-5xl font-bold text-white mt-2 mb-4 leading-tight">
@@ -440,11 +457,11 @@
         <p class="text-slate-400 text-sm sm:text-base mb-8">
           Plataformas web, apps móviles, software de escritorio o integración de IA y pagos. Cuéntame qué necesitas y vemos cómo hacerlo realidad.
         </p>
-        <div class="flex flex-wrap items-center gap-4">
-          <a href="mailto:cristobal.farias.frelancer@gmail.com" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm transition-all shadow-lg shadow-brand-500/20">
-            <i data-lucide="mail" class="w-4 h-4"></i> cristobal.farias.frelancer@gmail.com
+        <div class="flex flex-col sm:flex-row sm:flex-wrap sm:items-center gap-3 sm:gap-4">
+          <a href="mailto:cristobal.farias.frelancer@gmail.com" class="inline-flex items-center justify-center gap-2 min-w-0 px-5 sm:px-6 py-3.5 rounded-xl bg-brand-500 hover:bg-brand-600 text-white font-semibold text-sm transition-all shadow-lg shadow-brand-500/20">
+            <i data-lucide="mail" class="w-4 h-4 shrink-0"></i> <span class="sm:hidden">Escríbeme por correo</span><span class="hidden sm:inline">cristobal.farias.frelancer@gmail.com</span>
           </a>
-          <a href="https://www.linkedin.com/in/cristobal-farias-freelancer/" target="_blank" rel="noopener" class="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-surface-card hover:bg-surface-muted text-slate-200 border border-surface-border font-medium text-sm transition-all">
+          <a href="https://www.linkedin.com/in/cristobal-farias-freelancer/" target="_blank" rel="noopener" class="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-surface-card hover:bg-surface-muted text-slate-200 border border-surface-border font-medium text-sm transition-all">
             <i data-lucide="linkedin" class="w-4 h-4"></i> LinkedIn
           </a>
         </div>
@@ -466,6 +483,17 @@
 
   <script>
     lucide.createIcons();
+
+    // Menú móvil: abre/cierra y se cierra al elegir una sección
+    const menuBtn = document.getElementById('menu-toggle');
+    const menu = document.getElementById('mobile-menu');
+    const setMenu = (open) => {
+      menu.classList.toggle('hidden', !open);
+      menuBtn.setAttribute('aria-expanded', String(open));
+      menuBtn.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+    };
+    menuBtn.addEventListener('click', () => setMenu(menu.classList.contains('hidden')));
+    menu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => setMenu(false)));
   </script>
 </body>
 </html>
